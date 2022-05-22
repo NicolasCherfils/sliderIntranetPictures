@@ -1,0 +1,70 @@
+/* fonts */
+
+@font-face {
+    font-family: 'Kalista Script';
+    src: url('../fonts/kalista-script-webfont.eot');
+    src: url('../fonts/kalista-script-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/kalista-script-webfont.woff2') format('woff2'), url('../fonts/kalista-script-webfont.woff') format('woff'), url('../fonts/kalista-script-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#box {
+    max-width: 1000px;
+    background-color: #99cc66;
+    border-radius: 20px;
+}
+
+#box img {
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+#box figcaption {
+    font-family: "Kalista Script", Arial, sans-serif;
+    font-size: 3em;
+    color: #666666;
+    text-align: center;
+    padding: 20px;
+}
+
+#controle {
+    text-align: center;
+}
+
+#controle button {
+    margin: 20px;
+    margin-bottom: 0;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 30px;
+    color: #666666;
+}
+
+#controle p {
+    font-size: 12px;
+    font-family: arial;
+    color: #ffffff;
+    padding: 20px;
+}
+
+#controle button:hover,
+#controle button.active {
+    color: #ffffff;
+}
