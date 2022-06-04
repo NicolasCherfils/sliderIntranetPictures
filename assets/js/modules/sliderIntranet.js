@@ -1,38 +1,56 @@
 const sliderIntranet = {
+    path: "http://localhost/sliderIntranetPictures/assets/img/",
 
-    path: "assets/img/",
+    info: {
+        play: "Lecture en cours",
+        pause: "Lecture en pause",
+    },
 
     init: function() {
-        /* Liste des images */
+        /* Images list */
         let images = [{
                 title: "Cathy Bliem",
-                url: "01.jpg"
+                url: "01.jpg",
             },
             {
                 title: "Hervé Meinrad",
-                url: "02.jpg"
+                url: "02.jpg",
             },
             {
                 title: "Annie-Claude Manteau",
-                url: "03.jpg"
+                url: "03.jpg",
             },
             {
                 title: " ",
-                url: "04.jpg"
-            }
+                url: "04.jpg",
+            },
         ];
 
-        /* Liste des variables */
-        let bt_play = document.getElementById("play");
-        let bt_pause = document.getElementById("pause");
-        let p = document.querySelector("#controle p");
-        let image = document.querySelector("#box img");
-        let fc = document.querySelector("#box figcaption");
-        let i = 1;
+        /* Variables list */
+        let btPlay = document.getElementById("play");
+        let btPause = document.getElementById("pause");
+        let sliderStateInfo = document.querySelector("#controle p");
+        let image;
+        let fc;
+        let i = 0;
         let affichage;
 
-        /* Liste des fonctions */
-        const CHANGERIMG = () => {
+        /* Functions list */
+        const createImg = () => {
+
+            const imgSrc = sliderIntranet.path + images[i].url;
+            const figCaption = images[i].title;
+            const html = `
+                <figure>
+                    <img src="${imgSrc}" alt="diaporama"/>
+                    <figcaption>${figCaption}</figcaption>
+                </figure>
+            `;
+            $("#box").prepend(html);
+            i++;
+        };
+
+        const changeImg = () => {
             image.src = sliderIntranet.path + images[i].url;
             fc.innerText = images[i].title;
             if (i < images.length - 1) {
@@ -41,26 +59,36 @@ const sliderIntranet = {
                 i = 0;
             }
         };
-        const PLAY = () => {
-            affichage = setInterval(CHANGERIMG, 5000);
-            bt_play.disabled = true;
-            bt_pause.disabled = false;
-            bt_play.classList.add("active");
-            bt_pause.classList.remove("active");
-            p.innerText = "Lecture en cours";
-        };
-        const PAUSE = () => {
-            clearInterval(affichage);
-            bt_pause.disabled = true;
-            bt_play.disabled = false;
-            bt_pause.classList.add("active");
-            bt_play.classList.remove("active");
-            p.innerText = "Lecture en pause";
+
+        const playSlider = () => {
+            affichage = setInterval(changeImg, 5000);
+            btPlay.disabled = true;
+            btPause.disabled = false;
+            btPlay.classList.add("active");
+            btPause.classList.remove("active");
+            sliderStateInfo.innerText = sliderIntranet.info.play;
         };
 
-        /* Liste des événements */
-        bt_play.addEventListener("click", PLAY);
-        bt_pause.addEventListener("click", PAUSE);
+        const pauseSlider = () => {
+            clearInterval(affichage);
+            btPause.disabled = true;
+            btPlay.disabled = false;
+            btPause.classList.add("active");
+            btPlay.classList.remove("active");
+            sliderStateInfo.innerText = sliderIntranet.info.pause;
+        };
+
+        /* Event list */
+        btPlay.addEventListener("click", playSlider);
+        btPause.addEventListener("click", pauseSlider);
+
+        /* Create 1st image */
+        createImg();
+        image = document.querySelector("#box img");
+        fc = document.querySelector("#box figcaption");
+
+        /* Slider auto run */
+        playSlider();
     },
 };
 
