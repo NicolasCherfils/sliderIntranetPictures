@@ -16,7 +16,8 @@
     "scripts": {
         "start": "parcel",
         "build": "parcel build assets/js/main.js --dist-dir ./dist --public-url ./",
-        "purgecss": "purgecss --css dist/script.css --content **/*.html dist/script.js -o dist/cleaned/script.css"
+        "purgecss": "purgecss --css dist/main.css --content **/*.html dist/main.js -o dist/cleaned/main.css",
+        "gitlog": "git log --oneline --graph --all"
     },
     "browserslist": [
         "ie <= 11"
