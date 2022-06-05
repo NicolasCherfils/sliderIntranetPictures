@@ -27,19 +27,19 @@ body {
     height: 100vh;
 }
 
-#box {
+#slider-hfno {
     max-width: 1000px;
     background-color: #99cc66;
     border-radius: 20px;
 }
 
-#box img {
+#slider-hfno img {
     width: 100%;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
 
-#box figcaption {
+#slider-hfno figcaption {
     font-family: "Kalista Script", Arial, sans-serif;
     font-size: 3em;
     color: #666666;
@@ -47,11 +47,12 @@ body {
     padding: 20px;
 }
 
-#controle {
+#slider-hfno .sld__control {
     text-align: center;
 }
 
-#controle button {
+#slider-hfno .control__play,
+#slider-hfno .control__pause {
     margin: 20px;
     margin-bottom: 0;
     cursor: pointer;
@@ -62,14 +63,14 @@ body {
     color: #666666;
 }
 
-#controle p {
+#slider-hfno .control__info {
     font-size: 12px;
     font-family: arial;
     color: #ffffff;
     padding: 20px;
 }
 
-#controle button:hover,
-#controle button.active {
+#slider-hfno .sld__control button:hover,
+#slider-hfno .sld__control button.active {
     color: #ffffff;
 }
