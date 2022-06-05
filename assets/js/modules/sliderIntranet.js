@@ -89,8 +89,6 @@ const sliderIntranet = {
 
         /* Slider auto run */
         playSlider();
-        console.log("test");
-        console.log("test2");
     },
 };
 
